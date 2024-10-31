@@ -20,7 +20,6 @@ public class loginPage extends CommonMethods{
 	@FindBy(id = "account-name")
 	public WebElement accountName;
 	
-	//new
 	public loginPage(){
 		PageFactory.initElements(driver,this);
 	}
