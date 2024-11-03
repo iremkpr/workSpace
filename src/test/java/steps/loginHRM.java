@@ -1,5 +1,7 @@
 package steps;
 
+import static org.testng.Assert.assertTrue;
+
 import java.time.Duration;
 
 import org.junit.Assert;
@@ -40,5 +42,16 @@ public class loginHRM extends CommonMethods {
 		Assert.assertTrue("USER NOT LOGGED IN", name.equals(expectedName));
 		
 	}
+	@Then("I validate the warning")
+	public void i_validate_the_warning() {
+	    // Write code here that turns the phrase above into concrete actions
+		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOf(login.reLgnUName));
+		assertTrue(login.warning.isDisplayed(),"Warning is not exist! TEST FAILED");
+		
+	}
+
+
+
 
 }
