@@ -20,6 +20,12 @@ public class loginPage extends CommonMethods{
 	@FindBy(id = "account-name")
 	public WebElement accountName;
 	
+	@FindBy(xpath="//div[@class='toast-message']")
+	public WebElement warning;
+	
+	@FindBy(name="txtUsername")
+	public WebElement reLgnUName;
+	
 	public loginPage(){
 		PageFactory.initElements(driver,this);
 	}
