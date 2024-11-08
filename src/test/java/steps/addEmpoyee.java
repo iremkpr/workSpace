@@ -2,6 +2,9 @@ package steps;
 
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 
@@ -81,6 +84,32 @@ public class addEmpoyee extends CommonMethods{
 	    // Write code here that turns the phrase above into concrete actions
 	    addEmp.employeeId.clear();
 	}
+
+	@When("Fill valid firstName lastName and Location")
+	public void fill_valid_first_name_last_name_and_location(io.cucumber.datatable.DataTable dataTable) {
+	    
+		List<Map<String,String>> listOfMap=dataTable.asMaps();
+		for(Map<String,String> m:listOfMap) {
+			String firstName=m.get("firstName");
+			String lastName=m.get("lastName");
+			String location=m.get("Location");
+			addEmp.fName.sendKeys(firstName);
+			addEmp.lName.sendKeys(lastName);
+			Select locs=new Select(addEmp.locations);
+			locs.selectByVisibleText(location);
+		}
+	}
+	@Then("validate the user added Succesfully")
+	public void validate_the_user_added_succesfully(io.cucumber.datatable.DataTable dataTable) {
+		 waitForVisibility(profile.fullName);
+
+	    List<Map<String,String>> listOfMaps=dataTable.asMaps();
+	    for(Map<String,String> m :listOfMaps) {
+	    	String uName=m.get("userName");
+	    	assertTrue(profile.fullName.getText().equalsIgnoreCase(uName));
+	    }
+	}
+
 
 
 

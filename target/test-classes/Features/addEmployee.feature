@@ -22,8 +22,9 @@ Feature: Add Employee Feature
     Examples: 
       | firstName | lastName | Location                    | username  | password     | AcctName   |
       | Irma      | Sugha    | Canadian Development Center | irmaSugha | irmikella01* | Irma Sugha |
+      | Amir      | Khan     | Canadian Development Center | AmirKhan  | irmikella01* | Amir Khan  |
 
-	@addEmpWithoutId
+  @addEmpWithoutId
   Scenario Outline: Add Employee without employee id
     When Fill the valid "<firstName>" "<lastName>"   and "<Location>"
     And Delete existing id
@@ -31,5 +32,15 @@ Feature: Add Employee Feature
     Then validate the user "<AcctName>" added succesfully
 
     Examples: 
-      | firstName | lastName | Location                    |   AcctName   |
+      | firstName | lastName | Location                    | AcctName    |
       | AIrma     | Sugha    | Canadian Development Center | AIrma Sugha |
+
+	@dataTable
+  Scenario: Add Employee with first and last name using DataTable
+    When Fill valid firstName lastName and Location
+      | firstName | lastName | Location                    |
+      | Rene      | Ortega   | Canadian Development Center |
+    And Click the save button
+    Then validate the user added Succesfully
+    		|userName|
+				|Rene Ortega|
