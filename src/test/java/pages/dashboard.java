@@ -17,8 +17,11 @@ public class dashboard extends CommonMethods{
 	@FindBy(xpath = "//span[text()='Add Employee']")
 	public WebElement addEmp;
 	 
+	@FindBy(xpath="//i[text()='keyboard_arrow_down']")
+	public WebElement userNameOpenDown;
 	
-	
+	@FindBy(id="logoutLink")
+	public WebElement logOut;
 	
 	public dashboard() {
 		PageFactory.initElements(driver, this);
