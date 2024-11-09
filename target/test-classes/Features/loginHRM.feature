@@ -46,5 +46,5 @@ Feature: Login to HRM feature
 	@excelDataLogin
 	Scenario: Login to the system with using excel data		
 					And Get the valid data from "Employee" excel sheet and fill the username, password text boxes
-   				#When I click the Login button
-					#Then Validate the userName matched with expected value
+ 
+ 

@@ -44,3 +44,8 @@ Feature: Add Employee Feature
     Then validate the user added Succesfully
     		|userName|
 				|Rene Ortega|
+				
+				
+	@AddEmpEXCEL			
+	Scenario: Add new Employee from Excel file
+					When I add the valid datas from "Student" excel sheet
