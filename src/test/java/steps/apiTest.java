@@ -1,8 +1,11 @@
 package steps;
 
 import io.restassured.specification.RequestSpecification;
+import utils.ConfigsReader;
+import utils.Constants;
 
- import org.hamcrest.Matchers;
+import org.hamcrest.Matchers;
+import org.testng.annotations.Test;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -97,6 +100,14 @@ public class apiTest {
 	public void validate_that_the_response_body_contains_same_user_id() {
 	    // Write code here that turns the phrase above into concrete actions
 	    response.then().body("userId", Matchers.equalToIgnoringCase(userId));
+	}
+	@Test
+	public void testingAPI() {
+		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
+		RestAssured.baseURI=ConfigsReader.getProperty("baseURI");
+		Response response=RestAssured.given().when().get("/BookStore/v1/Books");
+		response.prettyPrint();
+		response.then().assertThat().statusCode(200);
 	}
 
 }

@@ -23,6 +23,9 @@ public class dashboard extends CommonMethods{
 	@FindBy(id="logoutLink")
 	public WebElement logOut;
 	
+	@FindBy(xpath="//span[text()='Employee List']")
+	public WebElement empList;
+	
 	public dashboard() {
 		PageFactory.initElements(driver, this);
 	}
