@@ -49,3 +49,8 @@ Feature: Add Employee Feature
 	@AddEmpEXCEL			
 	Scenario: Add new Employee from Excel file
 					When I add the valid datas from "Student" excel sheet
+					
+	@addEmpDetailEXCEL
+	Scenario: Add Employee and Create login Credentials from Excel file
+ 					When I add the valid datas via  "Employee" excel sheet
+ 					

@@ -1,10 +1,16 @@
 package utils;
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
 
 public class ExcelUtility {
 	private static Workbook book;
@@ -41,6 +47,34 @@ public class ExcelUtility {
 		}
 		return data;
  			
+	}
+	
+	@Test
+	public void testingEXCEL() throws IOException {
+		String path=System.getProperty("user.dir")+"/src/test/resources/testdata/Excel-3.xlsx";
+		FileInputStream fis=new FileInputStream(path);
+		Workbook book=new XSSFWorkbook(fis);
+		Sheet sheet=book.getSheet("Employee");
+		
+		List<Map<String, String>> listOfMaps=new ArrayList<>();
+		int rowCount=sheet.getPhysicalNumberOfRows();
+		int columnCount=sheet.getRow(0).getLastCellNum();
+		
+		for(int row=1;row<rowCount;row++) {
+			Map<String, String> m=new LinkedHashMap<>();
+			for(int col=0;col<columnCount;col++) {
+				String key=sheet.getRow(0).getCell(col).toString();
+				String value=sheet.getRow(row).getCell(col).toString();
+				m.put(key, value);
+			}
+			listOfMaps.add(m);
+		}
+		
+		for(Map<String, String> map:listOfMaps) {
+			System.out.println(map);
+		}
+		
+		book.close();
 	}
 	
 }

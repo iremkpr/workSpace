@@ -11,6 +11,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
+import org.testng.annotations.Test;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -61,5 +64,35 @@ public class dbTest extends CommonMethods {
 		st.close();
 		conn.close();
 	}
-
+	
+	@Test
+	public void testingDB() throws SQLException {
+		Connection conn=DriverManager.getConnection("jdbc:mysql://147.182.216.34:3306/classicmodels","user1","Neotech@123");
+		Statement st=conn.createStatement();
+		ResultSet rs=st.executeQuery("SELECT * FROM customers where state='NY';");
+		
+		ResultSetMetaData rsMetaData=rs.getMetaData();
+		int col=rsMetaData.getColumnCount();
+		List<Map<String,String>> listOfMaps=new ArrayList<>();
+		int rowCount=0;
+		while(rs.next()) {
+		    rowCount++;
+			Map<String,String> m=new LinkedHashMap<>();
+			for(int i=1;i<col;i++) {
+				String key=rsMetaData.getColumnName(i);
+				String value=rs.getString(i);
+				m.put(key, value);
+			}
+			listOfMaps.add(m);
+		}
+		for(Map<String,String> m: listOfMaps) {
+			System.out.println(m);
+		}
+		System.out.println(rowCount);
+		Assert.assertEquals(6, rowCount);
+	}
+	
+	
+	
+	
 }

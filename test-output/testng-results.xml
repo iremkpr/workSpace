@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-31T13:13:39 EDT" name="Default suite" finished-at="2024-10-31T13:13:39 EDT" duration-ms="428">
+  <suite started-at="2024-11-15T16:17:31 EST" name="Default suite" finished-at="2024-11-15T16:17:48 EST" duration-ms="16815">
     <groups>
     </groups>
-    <test started-at="2024-10-31T13:13:39 EDT" name="Default test" finished-at="2024-10-31T13:13:39 EDT" duration-ms="428">
-      <class name="DBTests.dbStep1">
-        <test-method signature="allEmps()[pri:0, instance:DBTests.dbStep1@4b741d6d]" started-at="2024-10-31T13:13:39 EDT" name="allEmps" finished-at="2024-10-31T13:13:39 EDT" duration-ms="382" status="PASS">
+    <test started-at="2024-11-15T16:17:31 EST" name="Default test" finished-at="2024-11-15T16:17:48 EST" duration-ms="16815">
+      <class name="steps.ActionsExercise">
+        <test-method signature="actionTest()[pri:0, instance:steps.ActionsExercise@173ed316]" started-at="2024-11-15T16:17:31 EST" name="actionTest" finished-at="2024-11-15T16:17:48 EST" duration-ms="16774" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- allEmps -->
-      </class> <!-- DBTests.dbStep1 -->
+        </test-method> <!-- actionTest -->
+      </class> <!-- steps.ActionsExercise -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

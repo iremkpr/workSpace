@@ -154,13 +154,56 @@ public class addEmpoyee extends CommonMethods {
 			Select select = new Select(addEmp.locations);
 			select.selectByVisibleText("Canadian Development Center");
 			addEmp.save.click();
-			
+
 			waitForVisibility(profile.fullName);
 			String fulName = m.get("FirstName") + " " + m.get("LastName");
 			Assert.assertTrue(profile.fullName.getText().equals(fulName));
-			
-			
- 			dash.addEmp.click();
+
+			dash.addEmp.click();
+			waitForVisibility(addEmp.fName);
+		}
+
+		book.close();
+
+	}
+
+	@When("I add the valid datas via  {string} excel sheet")
+	public void i_add_the_valid_datas_via_excel_sheet(String sheetName) throws IOException, InterruptedException {
+		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/last.xlsx";
+		FileInputStream fis = new FileInputStream(path);
+		Workbook book = new XSSFWorkbook(fis);
+		Sheet sheet = book.getSheet(sheetName);
+		int rowCount = sheet.getPhysicalNumberOfRows();
+		int colCount = sheet.getRow(0).getLastCellNum();
+		List<Map<String, String>> listOfMaps = new ArrayList<>();
+
+		for (int row = 1; row < rowCount; row++) {
+			Map<String, String> map = new LinkedHashMap<>();
+			for (int col = 0; col < colCount; col++) {
+				String key = sheet.getRow(0).getCell(col).toString();
+				String value = sheet.getRow(row).getCell(col).toString();
+				map.put(key, value);
+			}
+			listOfMaps.add(map);
+		}
+
+		for (Map<String, String> m : listOfMaps) {
+			addEmp.fName.sendKeys(m.get("FirstName"));
+			addEmp.lName.sendKeys(m.get("LastName"));
+			Select select = new Select(addEmp.locations);
+			select.selectByVisibleText("Canadian Development Center");
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click()", addEmp.loginDetails);
+
+			addEmp.username.sendKeys(m.get("Username"));
+			addEmp.password.sendKeys(m.get("Password"));
+			addEmp.confirmPassword.sendKeys(m.get("Password"));
+			Thread.sleep(1000);
+			addEmp.save.click();
+			waitForVisibility(profile.fullName);
+
+			dash.addEmp.click();
 			waitForVisibility(addEmp.fName);
 		}
 
