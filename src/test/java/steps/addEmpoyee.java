@@ -4,6 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,7 +15,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+ import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -209,6 +212,21 @@ public class addEmpoyee extends CommonMethods {
 
 		book.close();
 
+	}
+	@When("Click user profile picture icon and update the picture")
+	public void click_user_profile_picture_icon_and_update_the_picture() throws InterruptedException {
+	    
+		
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(40));
+	    wait.until(ExpectedConditions.visibilityOf(profile.photoIcon));
+	    profile.photoIcon.click();
+	    wait.until(ExpectedConditions.visibilityOf(profile.photoAdd));
+	    String filePath=System.getProperty("user.dir")+"/screenshots/failed/pp.png";
+	    profile.photoAddInput.sendKeys(filePath);
+	}
+	@Then("Validate that the user profile photo updated")
+	public void validate_that_the_user_profile_photo_updated() {
+	   
 	}
 
 }

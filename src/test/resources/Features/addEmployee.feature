@@ -35,22 +35,27 @@ Feature: Add Employee Feature
       | firstName | lastName | Location                    | AcctName    |
       | AIrma     | Sugha    | Canadian Development Center | AIrma Sugha |
 
-	@dataTable
+  @dataTable
   Scenario: Add Employee with first and last name using DataTable
     When Fill valid firstName lastName and Location
       | firstName | lastName | Location                    |
       | Rene      | Ortega   | Canadian Development Center |
     And Click the save button
     Then validate the user added Succesfully
-    		|userName|
-				|Rene Ortega|
-				
-				
-	@AddEmpEXCEL			
-	Scenario: Add new Employee from Excel file
-					When I add the valid datas from "Student" excel sheet
-					
-	@addEmpDetailEXCEL
-	Scenario: Add Employee and Create login Credentials from Excel file
- 					When I add the valid datas via  "Employee" excel sheet
- 					
+      | userName    |
+      | Rene Ortega |
+
+  @AddEmpEXCEL
+  Scenario: Add new Employee from Excel file
+    When I add the valid datas from "Student" excel sheet
+
+  @addEmpDetailEXCEL
+  Scenario: Add Employee and Create login Credentials from Excel file
+    When I add the valid datas via  "Employee" excel sheet
+
+  @addEmployeePhoto
+  Scenario: Add new Employee and update the user profile picture
+    When Fill the valid firstName "First" lastName  "Things First" and Location "Canadian Development Center"
+    And Click the save button
+    When Click user profile picture icon and update the picture
+    Then Validate that the user profile photo updated
