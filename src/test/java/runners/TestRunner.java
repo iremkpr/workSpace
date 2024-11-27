@@ -16,11 +16,11 @@ import io.cucumber.junit.CucumberOptions;
 
 		// if true, it does not run the java classes. Only checks the feature files
 		// if they are glued to some java code
-		dryRun = false ,
+		dryRun = true ,
 
 		// tags can do the same thing groups on TestNG do
 
-		tags = "@addEmployeePhoto",
+		tags = "@buzz",
 
 
 		monochrome = true,
