@@ -26,6 +26,9 @@ public class dashboard extends CommonMethods{
 	@FindBy(xpath="//span[text()='Employee List']")
 	public WebElement empList;
 	
+	@FindBy(xpath = "//span[text()='Buzz']")
+	public WebElement buzz;
+	
 	public dashboard() {
 		PageFactory.initElements(driver, this);
 	}

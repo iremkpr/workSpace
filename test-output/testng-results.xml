@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-15T16:17:31 EST" name="Default suite" finished-at="2024-11-15T16:17:48 EST" duration-ms="16815">
+  <suite started-at="2024-11-17T10:59:24 EST" name="Default suite" finished-at="2024-11-17T10:59:24 EST" duration-ms="43">
     <groups>
     </groups>
-    <test started-at="2024-11-15T16:17:31 EST" name="Default test" finished-at="2024-11-15T16:17:48 EST" duration-ms="16815">
-      <class name="steps.ActionsExercise">
-        <test-method signature="actionTest()[pri:0, instance:steps.ActionsExercise@173ed316]" started-at="2024-11-15T16:17:31 EST" name="actionTest" finished-at="2024-11-15T16:17:48 EST" duration-ms="16774" status="PASS">
+    <test started-at="2024-11-17T10:59:24 EST" name="Default test" finished-at="2024-11-17T10:59:24 EST" duration-ms="43">
+      <class name="steps.employeeProfile">
+        <test-method signature="testiko()[pri:0, instance:steps.employeeProfile@606e4010]" started-at="2024-11-17T10:59:24 EST" name="testiko" finished-at="2024-11-17T10:59:24 EST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- actionTest -->
-      </class> <!-- steps.ActionsExercise -->
+        </test-method> <!-- testiko -->
+      </class> <!-- steps.employeeProfile -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
