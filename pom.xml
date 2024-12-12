@@ -122,7 +122,7 @@
 				<version>3.3.1</version>
 				<configuration>
 					<includes>
-						<include>**/*${runner}.java</include>
+						<include>**/*TestRunner.java</include>
 					</includes>
 					<testFailureIgnore>false</testFailureIgnore>
 					<systemPropertyVariables>
