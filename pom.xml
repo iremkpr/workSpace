@@ -108,51 +108,51 @@
 	</dependencies>
 
 	<build>
-		<plugins>
+    <plugins>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.3.1</version>
+        <!-- Maven Surefire Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+                <includes>
+                    <include>**/*TestRunner.java</include>
+                </includes>
+                <testFailureIgnore>false</testFailureIgnore>
+                <systemPropertyVariables>
+                    <!-- Ensure Cucumber JSON report generation -->
+                    <cucumber.options>--plugin json:target/cucumber.json</cucumber.options>
+                </systemPropertyVariables>
+            </configuration>
+        </plugin>
 
-				<configuration>
-					<includes>
-						<include>**/*TestRunner.java</include>
-					</includes>
+        <!-- Maven Cucumber Reporting Plugin -->
+        <plugin>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>5.8.2</version>
+            <executions>
+                <execution>
+                    <id>execution</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <configuration>
+                        <projectName>WorkSpace</projectName>
+                        <!-- Directory for generated report -->
+                        <outputDirectory>${project.build.directory}</outputDirectory>
+                        <!-- JSON file to use for the report -->
+                        <jsonFiles>
+                            <param>${project.build.directory}/cucumber.json</param>
+                        </jsonFiles>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
 
-					<testFailureIgnore>true</testFailureIgnore>
-				</configuration>
-			</plugin>
+    </plugins>
+</build>
 
-			<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>5.8.2</version>
-				<executions>
-					<execution>
-						<id>execution</id>
-						<phase>test</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<projectName>WorkSpace</projectName>
-
-							<!-- output directory for the generated report -->
-							<outputDirectory>${project.build.directory}</outputDirectory>
-							<!-- optional, defaults to outputDirectory if not
-							specified -->
-							<inputDirectory>${project.build.directory}</inputDirectory>
-							<jsonFiles>
-								<!-- supports wildcard or name pattern -->
-								<param>**/*.json</param>
-							</jsonFiles>
-
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-		</plugins>
-	</build>
 </project>
