@@ -1,6 +1,6 @@
 @ScrollDown
 Feature: Scroll down continiously
- 
+   @ScrollDown
    Scenario: Title of your scenario
    					Given Open the browser and navigate it https://the-internet.herokuapp.com/ site
    					When Click on the "Infinite Scroll" link
