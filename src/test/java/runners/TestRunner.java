@@ -20,7 +20,7 @@ import io.cucumber.junit.CucumberOptions;
 
 		// tags can do the same thing groups on TestNG do
 
-		tags = "@ScrollDown",
+		tags = "@APIhw03",
 
 
 		monochrome = true,
