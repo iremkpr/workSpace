@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="steps.apiTest" class="method navigator-link" hash-for-method="getMyUser">getMyUser</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="steps.dbTest" class="method navigator-link" hash-for-method="DataMi">DataMi</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,14 +121,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">steps.apiTest</span>
+              <span class="class-name">steps.dbTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="getMyUser">
-                  </a> <!-- getMyUser -->
-                  <span class="method-name">getMyUser</span>
+                  <a name="DataMi">
+                  </a> <!-- DataMi -->
+                  <span class="method-name">DataMi</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +136,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/gq/pgqw2bl90td1m6gp9gw2n2qh0000gn/T/testng-eclipse--847713059/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/gq/pgqw2bl90td1m6gp9gw2n2qh0000gn/T/testng-eclipse--523309471/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,11 +145,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;steps.apiTest&quot;&gt;
+      &lt;class name=&quot;steps.dbTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;getMyUser&quot;/&gt;
+          &lt;include name=&quot;DataMi&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- steps.apiTest --&gt;
+      &lt;/class&gt; &lt;!-- steps.dbTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -191,14 +191,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'getMyUser')
-data.setCell(0, 2, 'steps.apiTest')
-data.setCell(0, 3, 2469);
+data.setCell(0, 1, 'DataMi')
+data.setCell(0, 2, 'steps.dbTest')
+data.setCell(0, 3, 380);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 380 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -213,31 +213,17 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">10 ignored methods</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">steps.apiTest</span>
+              <span class="ignored-class-name">steps.dbTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">deleteToTheAllBooks</span>
+                <span class="ignored-method-name">db2024</span>
                 <br/>
-                <span class="ignored-method-name">createNewUser1</span>
+                <span class="ignored-method-name">testingDB</span>
                 <br/>
-                <span class="ignored-method-name">deleteAccHW5</span>
-                <br/>
-                <span class="ignored-method-name">deleteBooksUser</span>
-                <br/>
-                <span class="ignored-method-name">publishBooks</span>
-                <br/>
-                <span class="ignored-method-name">getAllBooksNew</span>
-                <br/>
-                <span class="ignored-method-name">testingAPI</span>
-                <br/>
-                <span class="ignored-method-name">hw4API</span>
-                <br/>
-                <span class="ignored-method-name">putUpdate</span>
-                <br/>
-                <span class="ignored-method-name">tokenForUser</span>
+                <span class="ignored-method-name">notUSA</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -249,9 +235,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">steps.apiTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">steps.dbTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">getMyUser</span>
+                <span class="method-name">DataMi</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

@@ -91,7 +91,88 @@ public class dbTest extends CommonMethods {
 		System.out.println(rowCount);
 		Assert.assertEquals(6, rowCount);
 	}
+	//Display all employees whose last name ends with ‘n’
+	@Test
+	public static void db2024() throws SQLException {
+		Connection conn=DriverManager.getConnection("jdbc:mysql://147.182.216.34:3306/classicmodels","user1","Neotech@123");
+		Statement st=conn.createStatement();
+		ResultSet rs=st.executeQuery("SELECT * FROM employees where lastName like '%n';");
+		
+		ResultSetMetaData rsMetaData=rs.getMetaData();
+		
+		Map<String,String> map;
+		List<Map<String,String>> listOfMaps=new ArrayList<>();
+		while(rs.next()) {
+ 			map=new LinkedHashMap<>();
+ 			for(int i=1;i<rsMetaData.getColumnCount();i++) {
+ 				map.put(rsMetaData.getColumnName(i), rs.getString(i));
+ 			}
+ 			listOfMaps.add(map);
+		}
+		
+		for(Map<String,String>m:listOfMaps) {
+			System.out.println(m);
+		}
+		
+	}
+	//jdbc:mysql://147.182.216.34:3306/classicmodels
+	//user1
+	//Neotech@123
 	
+	@Test
+	public static void notUSA() throws SQLException {
+		 Connection conn=DriverManager.getConnection("jdbc:mysql://147.182.216.34:3306/classicmodels","user1","Neotech@123");
+		 Statement st=conn.createStatement();
+		 ResultSet rs=st.executeQuery("SELECT * FROM offices where country!='USA';");
+		 ResultSetMetaData rsMetaData=rs.getMetaData();
+		 Map<String,String> map;
+		 List<Map<String,String>> listOfMaps=new ArrayList<>();
+		 
+		 while(rs.next()) {
+			 map = new LinkedHashMap<>();
+			 for(int i=1;i<rsMetaData.getColumnCount();i++) {
+				 map.put(rsMetaData.getColumnName(i), rs.getString(i));
+			 }
+			 listOfMaps.add(map);
+		 }
+		 for(Map<String,String> m:listOfMaps) {
+			 System.out.println(m.get("country"));
+		 }
+	}
+	/*        Connect to classicmodels database
+        Execute a query to get all information of customer with id 124
+        Get the resultset metadata
+        Print the number of columns
+        Get all the column names and store them in an arraylist
+        Print the Arraylist
+*/
+	//jdbc:mysql://147.182.216.34:3306/classicmodels
+	//user1
+	//Neotech@123
+	@Test
+	public static void DataMi() throws SQLException {
+		Connection conn=DriverManager.getConnection("jdbc:mysql://147.182.216.34:3306/classicmodels","user1","Neotech@123");
+		Statement st=conn.createStatement();
+		ResultSet rs=st.executeQuery("SELECT * FROM customers where customerNumber='124';");
+		ResultSetMetaData rsMetaData=rs.getMetaData();
+		
+		Map<String,String> map;
+		List<Map<String,String>> listOfMaps= new ArrayList<>();
+		
+		while(rs.next()) {
+			map=new LinkedHashMap<>();
+			for(int i=1;i<rsMetaData.getColumnCount();i++) {
+				map.put(rsMetaData.getColumnName(i) ,rs.getString(i));
+			}
+			listOfMaps.add(map);
+		}
+		
+		for(Map<String,String> m:listOfMaps) {
+			String customerNumber=m.get("customerNumber");
+			Assert.assertEquals(customerNumber, "124");
+			System.out.println(m);
+		}
+	}
 	
 	
 	
