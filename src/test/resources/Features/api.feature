@@ -34,5 +34,12 @@ Feature: Api One Book
 				
 				
 				
-				
+	@APIhw03				
+	Scenario: Get All Books Test
+				When 	Send the request to the /BookStore/v1/Books end Point
+				Then 	Validate that the Reponse Status code is 200
+				And 	Validate that the Reponse Body contains 'books'
+				Then 		Check that books array has 8 elements
+				And 	Validate that the ISBN of the third book in the array is equal to "9781449337711"
+
 				
