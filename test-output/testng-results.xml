@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-03T12:12:23 EST" name="Default suite" finished-at="2025-01-03T12:12:23 EST" duration-ms="422">
+  <suite started-at="2025-01-03T13:33:16 EST" name="Default suite" finished-at="2025-01-03T13:33:16 EST" duration-ms="464">
     <groups>
     </groups>
-    <test started-at="2025-01-03T12:12:23 EST" name="Default test" finished-at="2025-01-03T12:12:23 EST" duration-ms="422">
+    <test started-at="2025-01-03T13:33:16 EST" name="Default test" finished-at="2025-01-03T13:33:16 EST" duration-ms="464">
       <class name="steps.dbTest">
-        <test-method signature="DataMi()[pri:0, instance:steps.dbTest@5032714f]" started-at="2025-01-03T12:12:23 EST" name="DataMi" finished-at="2025-01-03T12:12:23 EST" duration-ms="380" status="PASS">
+        <test-method signature="newTab()[pri:0, instance:steps.dbTest@353352b6]" started-at="2025-01-03T13:33:16 EST" name="newTab" finished-at="2025-01-03T13:33:16 EST" duration-ms="416" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DataMi -->
+        </test-method> <!-- newTab -->
       </class> <!-- steps.dbTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

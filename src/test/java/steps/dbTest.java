@@ -78,7 +78,7 @@ public class dbTest extends CommonMethods {
 		while(rs.next()) {
 		    rowCount++;
 			Map<String,String> m=new LinkedHashMap<>();
-			for(int i=1;i<col;i++) {
+			for(int i=1;i<=col;i++) {
 				String key=rsMetaData.getColumnName(i);
 				String value=rs.getString(i);
 				m.put(key, value);
@@ -104,7 +104,7 @@ public class dbTest extends CommonMethods {
 		List<Map<String,String>> listOfMaps=new ArrayList<>();
 		while(rs.next()) {
  			map=new LinkedHashMap<>();
- 			for(int i=1;i<rsMetaData.getColumnCount();i++) {
+ 			for(int i=1;i<=rsMetaData.getColumnCount();i++) {
  				map.put(rsMetaData.getColumnName(i), rs.getString(i));
  			}
  			listOfMaps.add(map);
@@ -130,7 +130,7 @@ public class dbTest extends CommonMethods {
 		 
 		 while(rs.next()) {
 			 map = new LinkedHashMap<>();
-			 for(int i=1;i<rsMetaData.getColumnCount();i++) {
+			 for(int i=1;i<=rsMetaData.getColumnCount();i++) {
 				 map.put(rsMetaData.getColumnName(i), rs.getString(i));
 			 }
 			 listOfMaps.add(map);
@@ -161,7 +161,7 @@ public class dbTest extends CommonMethods {
 		
 		while(rs.next()) {
 			map=new LinkedHashMap<>();
-			for(int i=1;i<rsMetaData.getColumnCount();i++) {
+			for(int i=1;i<=rsMetaData.getColumnCount();i++) {
 				map.put(rsMetaData.getColumnName(i) ,rs.getString(i));
 			}
 			listOfMaps.add(map);
@@ -172,6 +172,63 @@ public class dbTest extends CommonMethods {
 			Assert.assertEquals(customerNumber, "124");
 			System.out.println(m);
 		}
+	}
+	
+	@Test
+	public static void custNoOrder() throws SQLException {
+		Connection conn=DriverManager.getConnection("jdbc:mysql://147.182.216.34:3306/classicmodels","user1","Neotech@123");
+		Statement st=conn.createStatement();
+		ResultSet rs=st.executeQuery("SELECT * FROM customers where customerNumber not in(select customerNumber from orders) ;");
+
+		ResultSetMetaData rsMetaData=rs.getMetaData();
+		
+		Map<String,String> map;
+		List<Map<String,String>> listOfMaps=new ArrayList<>();
+		
+		  while(rs.next()) {
+			  map=new LinkedHashMap<>();
+			  for(int i=1;i<=rsMetaData.getColumnCount(); i++) {
+				  map.put(rsMetaData.getColumnName(i),rs.getString(i) );
+			  }
+			  listOfMaps.add(map);
+		  }
+		
+		  System.out.println("customers without any orders");
+		  System.out.println(listOfMaps.size());
+		  for(Map<String,String> m:listOfMaps) {
+			  System.out.println(m);
+		  }
+	
+	}
+	//. Write a query to return order number, order status and total sales
+	//  from the orders and orderdetails tables and group by orderNumber
+	
+	
+	@Test
+	public static void newTab() throws SQLException {
+		Connection conn=DriverManager.getConnection("jdbc:mysql://147.182.216.34:3306/classicmodels","user1","Neotech@123");
+		Statement st=conn.createStatement();
+		ResultSet rs=st.executeQuery("Select o.orderNumber,status,totalAmount  from orders as o inner join (Select orderNumber,sum(quantityOrdered*priceEach) as totalAmount from orderdetails\n"
+				+ "group by orderNumber) as n\n"
+				+ "on o.orderNumber=n.orderNumber; \n"
+				+ " ");
+		ResultSetMetaData rsMeta=rs.getMetaData();
+		Map<String,String> map;
+		List<Map<String,String>> listOfMap=new ArrayList<>();
+		while(rs.next()) {
+			map=new LinkedHashMap<>();
+			for(int i=1;i<=rsMeta.getColumnCount();i++){
+				map.put(rsMeta.getColumnName(i), rs.getString(i));
+				
+			}
+			listOfMap.add(map);
+		}
+ 		for(Map<String,String> m:listOfMap) {
+			System.out.println(m);
+		}
+		
+		
+		
 	}
 	
 	
