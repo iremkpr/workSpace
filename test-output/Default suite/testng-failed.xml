@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="steps.dbTest">
+      <class name="steps.addEmpoyee">
         <methods>
-          <include name="newTab"/>
+          <include name="skrinshat"/>
         </methods>
-      </class> <!-- steps.dbTest -->
+      </class> <!-- steps.addEmpoyee -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
